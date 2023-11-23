@@ -39,7 +39,7 @@ module.exports = {
     },
 
     // Update a user
-    async updateUser(res, res) {
+    async updateUser(req, res) {
         try {
             const user = await User.findOneAndUpdate(
                 { _id: req.params.userId },
