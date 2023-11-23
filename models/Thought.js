@@ -13,7 +13,7 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            get: function() {
+            get: function () {
                 return Date.now().toLocaleString();
             },
         },
@@ -26,7 +26,8 @@ const thoughtSchema = new Schema(
     {
         toJSON: {
             getters: true,
-        }
+        },
+        // id: false,
     }
 );
 

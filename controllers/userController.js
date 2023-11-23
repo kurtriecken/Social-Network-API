@@ -15,7 +15,7 @@ module.exports = {
     async getSingleUser(req, res) {
         try {
             const user = await User.findOne({
-                _id: req.params.studentId
+                _id: req.params.userId
             })
                 .select('-__v');
 
@@ -60,7 +60,7 @@ module.exports = {
     async deleteUser(req, res) {
         try {
             const user = await User.findOneAndRemove({
-                _id: req.params.studentId
+                _id: req.params.userId
             });
 
             if (!user) {
