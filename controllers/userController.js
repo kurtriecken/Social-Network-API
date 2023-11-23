@@ -8,7 +8,7 @@ module.exports = {
             .populate('thoughts')
             .populate('friends')
             .select('-__v');
-            
+
             res.json(users);
         } catch (err) {
             return res.status(500).err;
@@ -110,7 +110,7 @@ module.exports = {
         try {
             const user = await User.findOneAndUpdate(
                 { _id: req.params.userId },
-                { $pull: { friend: { _id: req.params.friendId } } },
+                { $pull: { friends: req.params.friendId } },
                 { runValidators: true, new: true }
             );
 
