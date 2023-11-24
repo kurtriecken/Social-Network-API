@@ -81,7 +81,7 @@ module.exports = {
             if (!thought) {
                 return res.status(404).json({ message: 'No thought with that ID' })
             };
-            res.json({ message: 'Thought removed successfully!' });
+            res.json({ message: 'Thought removed successfully.' });
         } catch (err) {
             return res.status(500).json(err);
         }
@@ -121,7 +121,7 @@ module.exports = {
             if (!thought) {
                 return res.status(404).json({ message: 'No thought with that ID' })
             };
-            res.json(thought);
+            res.json({ message: 'Reaction removed from thought successfully.' });
         } catch (err) {
             return res.status(500).json(err);
         }

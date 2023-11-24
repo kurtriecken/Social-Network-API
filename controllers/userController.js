@@ -70,6 +70,10 @@ module.exports = {
                 _id: req.params.userId
             });
 
+            if (!user) {
+                return res.status(404).json({ message: 'No user with that ID' })
+            };
+
             const thought = '';
             user.thoughts.forEach(async thought => {
                 thought = await Thought.findOneAndDelete(
@@ -77,11 +81,7 @@ module.exports = {
                 )
             });
 
-
-            if (!user) {
-                return res.status(404).json({ message: 'No user with that ID' })
-            };
-            res.json({ message: 'User removed successfully!' });
+            res.json({ message: 'User removed successfully.' });
         } catch (err) {
             return res.status(500).json(err);
         }
@@ -117,7 +117,7 @@ module.exports = {
             if (!user) {
                 return res.status(404).json({ message: 'No user and/or friend with that ID' })
             };
-            res.json(user);
+            res.json({ message: 'Friend removed successfully.' });
         } catch (err) {
             return res.status(500).json(err);
         }
